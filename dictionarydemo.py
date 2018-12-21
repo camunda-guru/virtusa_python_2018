@@ -251,15 +251,21 @@ users=[
   }
 ]
 
+basePath="F:/Python_Virtusa/Day1"
+
+import os
+#create sub directory
+
+os.mkdir(basePath+"/data",mode=0o777)
+#create file
+fileRef=open(basePath+"/data/users.csv",mode="w")
+    
 for _ in users:   
    for (key,value) in _.items():
        if(key == "name"):
-         print(value,"\t=>", end="\t")
-       if(key == "address"):
-         for (k1,v1) in value.items():
-             if(k1=="city"):
-               print(v1)
-   
+         fileRef.write(value+"\n")
+      
+fileRef.close()
 
     
     
